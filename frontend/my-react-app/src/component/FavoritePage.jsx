@@ -9,7 +9,7 @@ export const FavoritePage = () => {
     useEffect(() => {
       const fetchFavorites = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/favorites', {
+          const response = await axios.get('https://world-app-ztrd.onrender.com/api/favorites', {
             headers: { Authorization: `Bearer ${auth.token}` }
           });
           setFavorites(response.data);

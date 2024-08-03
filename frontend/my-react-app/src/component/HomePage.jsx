@@ -20,7 +20,7 @@ export function HomePage() {
     const fetchHistory = async () => {
       if (auth) {
         try {
-          const response = await axios.get('http://localhost:8080/api/history', {
+          const response = await axios.get('https://world-app-ztrd.onrender.com/api/history', {
             headers: { Authorization: `Bearer ${auth.token}` }
           });
           setHistory(response.data);
@@ -35,7 +35,7 @@ export function HomePage() {
 
   const fetchCountries = async (code) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/countries/currency/${code}`);
+      const response = await axios.get(`https://world-app-ztrd.onrender.com/api/countries/currency/${code}`);
       console.log('API Response:', response.data);
       if (Array.isArray(response.data)) {
         setCountries(response.data);
@@ -43,7 +43,7 @@ export function HomePage() {
         console.error('Unexpected response format:', response.data);
       }
       if (auth) {
-        await axios.post('http://localhost:8080/api/history', { search: code }, {
+        await axios.post('https://world-app-ztrd.onrender.com/api/history', { search: code }, {
           headers: { Authorization: `Bearer ${auth.token}` }
         });
       }
